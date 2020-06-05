@@ -53,108 +53,8 @@
     -o-animation: mygit 100s linear infinite;
     animation: mygit 100s linear infinite;
 }
-/*左边云*/
-@keyframes mylefp {
-    0%{
-        left: 0;
-        opacity: 1;
-    }
-    100%{
-        left: -60%;
-        opacity: 0;
-    }
-}
-@-o-keyframes mylefp {
-    0%{
-        left: 0;
-        opacity: 1;
-    }
-    100%{
-        left: -60%;
-        opacity: 0;
-    }
-}
-@-moz-keyframes mylefp {
-    0%{
-        left: 0;
-        opacity: 1;
-    }
-    100%{
-        left: -60%;
-        opacity: 0;
-    }
-}
-@-ms-keyframes mylefp {
-    0%{
-        left: 0;
-        opacity: 1;
-    }
-    100%{
-        left: -60%;
-        opacity: 0;
-    }
-}
-@-webkit-keyframes mylefp {
-    0%{
-        left: 0;
-        opacity: 1;
-    }
-    100%{
-        left: -60%;
-        opacity: 0;
-    }
-}
-/*右边云*/
-@keyframes myrighp {
-    0%{
-        right: 0;
-        opacity: 1;
-    }
-    100%{
-        right: -120%;
-        opacity: 0;
-    }
-}
-@-webkit-keyframes myrighp {
-    0%{
-        right: 0;
-        opacity: 1;
-    }
-    100%{
-        right: -120%;
-        opacity: 0;
-    }
-}
-@-ms-keyframes myrighp {
-    0%{
-        right: 0;
-        opacity: 1;
-    }
-    100%{
-        right: -120%;
-        opacity: 0;
-    }
-}
-@-moz-keyframes myrighp {
-    0%{
-        right: 0;
-        opacity: 1;
-    }
-    100%{
-        right: -120%;
-        opacity: 0;
-    }
-}
-@-o-keyframes myrighp {
-    0%{
-        right: 0;
-        opacity: 1;
-    }
-    100%{
-        right: -120%;
-        opacity: 0;
-    }
-}
+
+
 /*荧光点点*/
 @keyframes mygit {
     0%{
@@ -306,46 +206,7 @@
 }
 
 /*注册*/
-@keyframes myflrg-2 {
-    0%{
-        top: 300%;
-    }
-    100%{
-        top: 0;
-    }
-}
-@-o-keyframes myflrg-2 {
-    0%{
-        top: 300%;
-    }
-    100%{
-        top: 0;
-    }
-}
-@-moz-keyframes myflrg-2 {
-    0%{
-        top: 300%;
-    }
-    100%{
-        top: 0;
-    }
-}
-@-ms-keyframes myflrg-2 {
-    0%{
-        top: 300%;
-    }
-    100%{
-        top: 0;
-    }
-}
-@-webkit-keyframes myflrg-2 {
-    0%{
-        top: 300%;
-    }
-    100%{
-        top: 0;
-    }
-}
+
 /*input呼吸框*/
 @keyframes myin-1 {
     0%{

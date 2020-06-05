@@ -1,5 +1,5 @@
 <template>
-   <div id="ddp">
+   <div id="app">
     <!--导航条 -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -207,7 +207,8 @@
    font-size:20px;
    margin-left:90px;
  }
- #ddp{
-   background-image: url("../assets/img/preview-1.jpg");
- }
+#app{
+    
+
+  }
 </style>
