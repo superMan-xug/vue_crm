@@ -10,8 +10,8 @@
          <th>联系人邮箱</th>
          <th>生日</th>
        </tr>
-       </thead>
-       <tbody>
+      </thead>
+      <tbody>
            <tr v-for="m in message">
               <td>{{m.id}}</td>
               <td>{{m.name}}</td>
