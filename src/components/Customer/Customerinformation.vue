@@ -62,28 +62,36 @@
                   	       <form>
                   			  <div class="form-group">
                   			    <label for="customerName">客户名字</label>
-                  			    <input type="text" class="form-control" id="customerName">
+                  			    <input type="text" class="form-control" id="customerName" v-model="i_name">
                   			  </div>
                   			   <div class="form-group">
                   			    <label for="customerAge">客户年龄</label>
-                  			    <input type="text" class="form-control" id="customerAge">
+                  			    <input type="text" class="form-control" id="customerAge" v-model="i_age">
+                            </div>
+                           <div class="form-group">
+                             <label for="customerSex">客户性别</label>
+                             <input type="text" class="form-control" id="editCustomerSex" v-model="i_sex">
+                           </div>
+                            <div class="form-group">
+                              <label for="customerPhone">客户电话</label>
+                              <input type="text" class="form-control" id="customerPhone" v-model="i_phone">
                             </div>
                             <div class="form-group">
-                              <label for="customerAge">客户电话</label>
-                              <input type="text" class="form-control" id="customerPhone">
-                            </div>
-                            <div class="form-group">
-                              <label for="customerSex">客户邮箱</label>
-                              <input type="text" class="form-control" id="customerEmail">
+                              <label for="customerEmail">客户邮箱</label>
+                              <input type="text" class="form-control" id="customerEmail" v-model="i_email">
                             </div>
                   			    <div class="form-group">
-                  			    <label for="customerAge">客户生日</label>
-                  			    <input type="text" class="form-control" id="customerBirth">
-                  			  </div>
+                  			    <label for="customerBirth">客户生日</label>
+                  			    <input type="text" class="form-control" id="customerBirth" v-model="i_birth">
+                            </div>
+                            <div class="form-group">
+                              <label for="customerLevel">客户级别</label>
+                              <input type="text" class="form-control" id="customerlevel" v-model="i_level">
+                            </div>
                   			</form>
                   	      </div>
                   	      <div class="modal-footer">
-                  	        <button type="button" class="btn btn-primary" id="save">保存</button>
+                  	        <button type="button" class="btn btn-primary" id="save" @click="addCustomer()">保存</button>
                   	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                   	      </div>
                   	    </div>
@@ -141,7 +149,14 @@
           currectPage:1,
           sizePage:5,
           count:0,
-          name:""
+          name:"",
+          i_name:"",
+          i_age:"",
+          i_sex:"",
+          i_email:"",
+          i_phone:"",
+          i_birth:"",
+          i_level:"",
        }
      },
      mounted(){
@@ -158,63 +173,91 @@
      },
 
      methods:{
-    toEditUpdate(){
-     $("#update").modal("show")
-    },
-       toinsert(){
-        $("#add").modal("show")
-       },
-       selectsubmit(){
-          var obj=this
-          obj.name=$("#inp").val();
-          obj.currectPage=1;
-       },
-       toPage(index){
-         var obj=this;
-         obj.currectPage=index
-       },
-       deleteById(id,name){
-
-         if(confirm("你确定删除"+name+"的客户信息吗")){
-             $.ajax({
-                url:"http://localhost:8082/crm/customerController/deleteById",
-                type:"POST",
-                data:{time:new Date().getTime(),
-                      id:id
-                },
-                success:function(result){
-                  alert(result.yes)
-                },
-                xhrFields: {
-                	withCredentials: true
-                }
-             });
-         }
-       },
-        getAll(){
-           var obj=this
+       addCustomer:function(){
+           var obj=this;
            $.ajax({
-              url:"http://localhost:8082/crm/customerController/queryAll",
+              url:"http://localhost:8082/crm/customerController/addCustomer",
               type:"POST",
               data:{time:new Date().getTime(),
-                     currectPage:obj.currectPage,
-                     sizePage:obj.sizePage,
-                     name:obj.name
+                     name:obj.i_name,
+                     age:obj.i_age,
+                     sex:obj.i_sex,
+                     email:obj.i_email,
+                     phone:obj.i_phone,
+                     birth:obj.i_birth,
+                     level:obj.i_level
               },
               success:function(result){
-                  obj.message=result.customer;
-                  obj.count=result.count;
-                  obj.getAll()
+                if(result.code =="200"){
+                  alert("添加成功");
+                   $("#add").modal("hide")
+                }else{
+                  alert("添加失败，联系管理员");
+                }
+
               },
               xhrFields: {
-              	withCredentials: true
+               withCredentials: true
               }
            });
-        }
-     },
-     updated(){
-        this.getAll
-     }
+      },
+      toEditUpdate(){
+       $("#update").modal("show")
+      },
+         toinsert(){
+          $("#add").modal("show")
+         },
+         selectsubmit(){
+            var obj=this
+            obj.name=$("#inp").val();
+            obj.currectPage=1;
+         },
+         toPage(index){
+           var obj=this;
+           obj.currectPage=index
+         },
+         deleteById(id,name){
+
+           if(confirm("你确定删除"+name+"的客户信息吗")){
+               $.ajax({
+                  url:"http://localhost:8082/crm/customerController/deleteById",
+                  type:"POST",
+                  data:{time:new Date().getTime(),
+                        id:id
+                  },
+                  success:function(result){
+                    alert(result.yes)
+                  },
+                  xhrFields: {
+                    withCredentials: true
+                  }
+               });
+           }
+         },
+          getAll(){
+             var obj=this
+             $.ajax({
+                url:"http://localhost:8082/crm/customerController/queryAll",
+                type:"POST",
+                data:{time:new Date().getTime(),
+                       currectPage:obj.currectPage,
+                       sizePage:obj.sizePage,
+                       name:obj.name
+                },
+                success:function(result){
+                    obj.message=result.customer;
+                    obj.count=result.count;
+                    obj.getAll()
+                },
+                xhrFields: {
+                  withCredentials: true
+                }
+             });
+          }
+       },
+       updated(){
+          this.getAll
+       }
   }
 </script>
 
