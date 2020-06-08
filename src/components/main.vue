@@ -204,11 +204,9 @@
   }
  span{
    font-weight: bold;
+   
    font-size:20px;
    margin-left:90px;
  }
-#app{
-    
-
-  }
+ 
 </style>
