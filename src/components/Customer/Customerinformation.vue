@@ -24,7 +24,7 @@
                 <td>{{m.phone}}</td>
                 <td>{{m.email}}</td>
                 <td>{{m.birth}}</td>
-                <td><button class="btn btn-warning btn-sm b2" @click="toEditCustomer(m.id)"><i class="glyphicon glyphicon-wrench"></i>&nbsp;修改</button></td>
+                <td><button class="btn btn-warning btn-sm b2" @click="toEditUpdate(m.id)"><i class="glyphicon glyphicon-wrench"></i>&nbsp;修改</button></td>
                 <td><button class="btn btn-success btn-sm b2" @click="deleteById(m.id,m.name)"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</button></td>
              </tr>
        </tbody>
@@ -50,7 +50,86 @@
                     </nav>
                   </div>
                   <br />
-  
+                  <!--添加的模态框-->
+                  <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  	  <div class="modal-dialog" role="document">
+                  	    <div class="modal-content">
+                  	      <div class="modal-header">
+                  	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  	        <h4 class="modal-title" id="myModalLabel">添加客户</h4>
+                  	      </div>
+                  	      <div class="modal-body">
+                  	       <form>
+                  			  <div class="form-group">
+                  			    <label for="customerName">客户名字</label>
+                  			    <input type="text" class="form-control" id="customerName">
+                  			  </div>
+                  			   <div class="form-group">
+                  			    <label for="customerAge">客户年龄</label>
+                  			    <input type="text" class="form-control" id="customerAge">
+                            </div>
+                            <div class="form-group">
+                              <label for="customerAge">客户电话</label>
+                              <input type="text" class="form-control" id="customerPhone">
+                            </div>
+                            <div class="form-group">
+                              <label for="customerSex">客户邮箱</label>
+                              <input type="text" class="form-control" id="customerEmail">
+                            </div>
+                  			    <div class="form-group">
+                  			    <label for="customerAge">客户生日</label>
+                  			    <input type="text" class="form-control" id="customerBirth">
+                  			  </div>
+                  			</form>
+                  	      </div>
+                  	      <div class="modal-footer">
+                  	        <button type="button" class="btn btn-primary" id="save">保存</button>
+                  	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  	      </div>
+                  	    </div>
+                  	  </div>
+                  	</div>
+                    <!--修改的模态框-->
+                    <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    	  <div class="modal-dialog" role="document">
+                    	    <div class="modal-content">
+                    	      <div class="modal-header">
+                    	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    	        <h4 class="modal-title" id="myModalLabel">修改客户</h4>
+                    	      </div>
+                    	      <div class="modal-body">
+                    	        <form>
+                    			  <div class="form-group">
+                    			  	<input  type="hidden"  id="editCustomerId"/>
+                    			    <label for="customerName">客户名字</label>
+                    			    <input type="text" class="form-control" id="editCustomerName">
+                    			  </div>
+                    			   <div class="form-group">
+                    			    <label for="customerAge">客户年龄</label>
+                    			    <input type="text" class="form-control" id="editCustomerAge">
+                    			  </div>
+                            <div class="form-group">
+                              <label for="customerAge">客户电话</label>
+                              <input type="text" class="form-control" id="customerPhone">
+                            </div>
+                    			    <div class="form-group">
+                    			    <label for="customerAge">客户生日</label>
+                    			    <input type="text" class="form-control" id="editCustomerBirth">
+                    			  </div>
+                    			 	<div class="form-group">
+                    			    <label for="customerSex">客户邮箱</label>
+                    			    <input type="text" class="form-control" id="editCustomerEmail">
+                    			  </div>
+                    			</form>
+                    	      </div>
+                    	      <div class="modal-footer">
+                    	        <button type="button" class="btn btn-primary" id="updateBtn">修改</button>
+                    	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    	      </div>
+                    	    </div>
+                    	  </div>
+                    	</div>
+
   </div>
 </template>
 
@@ -79,8 +158,11 @@
      },
 
      methods:{
+    toEditUpdate(){
+     $("#update").modal("show")
+    },
        toinsert(){
-         this.$router.push("/insert")
+        $("#add").modal("show")
        },
        selectsubmit(){
           var obj=this
@@ -137,7 +219,7 @@
 </script>
 
 <style scoped>
-  input{
+  #inp{
      width: 300px;
      height: 40px;
      border-radius:10px 0px 0px 10px;
