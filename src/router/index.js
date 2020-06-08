@@ -6,6 +6,8 @@ import Customerinformation from '@/components/Customer/Customerinformation'
 import Linkman from '@/components/LinkMan/Linkman'
 import UpdatePwd from '@/components/UpdatePwd'
 import Insert from '@/components/insert'
+import UserInformation from '@/components/UserInformation/UserInformation'
+
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -34,6 +36,12 @@ export default new Router({
           name: 'UpdatePwd',
           component: UpdatePwd
         },
+        {
+          path: 'userInformation',
+          name: 'UserInformation',
+          component: UserInformation
+        },
+        
       ]
     },
     {
