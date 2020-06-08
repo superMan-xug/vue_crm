@@ -5,7 +5,6 @@ import Main from '@/components/main'
 import Customerinformation from '@/components/Customer/Customerinformation'
 import Linkman from '@/components/LinkMan/Linkman'
 import UpdatePwd from '@/components/UpdatePwd'
-import Insert from '@/components/insert'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -35,11 +34,6 @@ export default new Router({
           component: UpdatePwd
         },
       ]
-    },
-    {
-      path: '/insert',
-      name: 'Insert',
-      component: Insert
     },
 
   ]

@@ -168,7 +168,8 @@
           this.$router.push("/main/customerinfor")
        },
        tolinkman(){
-         this.$router.push("/main/linkman")
+         var obj=this
+         this.$router.push({name:'Linkman',query:{id:obj.user.id,role:obj.user.role}})
        },
        toupdatepwd(){
          this.$router.push("/main/updatePwd")
