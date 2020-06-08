@@ -5,25 +5,24 @@
        <tr>
          <th>联系人编号</th>
          <th>联系人姓名</th>
-         <th>联系人年龄</th>
          <th>联系人电话</th>
          <th>联系人邮箱</th>
-         <th>生日</th>
+         <th>联系人QQ</th>
+         <th>所属人</th>
        </tr>
-      </thead>
-      <tbody>
-           <tr v-for="m in message">
-              <td>{{m.id}}</td>
-              <td>{{m.name}}</td>
-              <td>{{m.age}}</td>
-              <td>{{m.phone}}</td>
-              <td>{{m.email}}</td>
-              <td>{{m.birth}}</td>
-              <td><button class="btn btn-warning btn-sm b2" @click="toEditCustomer(m.id)"><i class="glyphicon glyphicon-wrench"></i>&nbsp;修改</button></td>
-              <td><button class="btn btn-success btn-sm b2" @click="deleteById(m.id,m.name)"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</button></td>
+
+       </thead>
+       <tbody>
+           <tr v-for="lin in linksmans">
+              <td>{{lin.id}}</td>
+              <td>{{lin.name}}</td>
+              <td>{{lin.phone}}</td>
+              <td>{{lin.email}}</td>
+              <td>{{lin.qq}}</td>
+              <td>{{lin.user.username}}</td>
            </tr>
      </tbody>
-     
+
        </table>
   </div>
 </template>
@@ -46,7 +45,7 @@
                type:"POST",
                data:{time:new Date().getTime()},
                success:function(result){
-                   obj.linksmans=result
+                   obj.linksmans=result.linkmans
                },
                xhrFields: {
                	withCredentials: true
@@ -58,4 +57,5 @@
 </script>
 
 <style>
+  
 </style>
