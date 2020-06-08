@@ -10,6 +10,7 @@
          <th>联系人QQ</th>
          <th>所属人</th>
        </tr>
+
        </thead>
        <tbody>
            <tr v-for="lin in linksmans">
@@ -79,4 +80,5 @@
 </script>
 
 <style>
+  
 </style>
