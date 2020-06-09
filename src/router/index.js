@@ -4,7 +4,10 @@ import Login from '@/components/login'
 import Main from '@/components/main'
 import Customerinformation from '@/components/Customer/Customerinformation'
 import Linkman from '@/components/LinkMan/Linkman'
-import UpdatePwd from '@/components/UpdatePwd'
+
+import Insert from '@/components/insert'
+import UserInformation from '@/components/UserInformation/UserInformation'
+
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -29,10 +32,11 @@ export default new Router({
           component: Linkman
         },
         {
-          path: 'updatePwd',
-          name: 'UpdatePwd',
-          component: UpdatePwd
+          path: 'userInformation',
+          name: 'UserInformation',
+          component: UserInformation
         },
+
       ]
     },
 
