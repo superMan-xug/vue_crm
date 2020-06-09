@@ -116,7 +116,7 @@
        </div>
        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
          <div class="panel-body" style="padding: 0;">
-           <button class="btn btn-primary" style="width: 100%;">用户信息</button>
+           <button class="btn btn-primary" style="width: 100%;" @click="userInformation">用户信息</button>
          </div>
        </div>
      </div>
@@ -195,8 +195,15 @@
             	withCredentials: true
             }
          });
-       }
-     }
+       },
+       userInformation:function(){
+         if(this.user.role == 0){
+           this.$router.push("/main/userInformation")
+         }else{
+           alert("权限不够，请联系管理员！")
+         }
+       },
+      }
   }
 </script>
 
@@ -208,9 +215,9 @@
   }
  span{
    font-weight: bold;
-   
+
    font-size:20px;
    margin-left:90px;
  }
- 
+
 </style>
