@@ -5,6 +5,7 @@ import Main from '@/components/main'
 import Customerinformation from '@/components/Customer/Customerinformation'
 import Linkman from '@/components/LinkMan/Linkman'
 
+
 import UpdatePwd from '@/components/UpdatePwd'
 import Supplier from '@/components/Supplier/Supplier'
 
