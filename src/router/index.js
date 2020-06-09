@@ -5,7 +5,6 @@ import Main from '@/components/main'
 import Customerinformation from '@/components/Customer/Customerinformation'
 import Linkman from '@/components/LinkMan/Linkman'
 
-import Insert from '@/components/insert'
 import UserInformation from '@/components/UserInformation/UserInformation'
 
 Vue.use(Router)
