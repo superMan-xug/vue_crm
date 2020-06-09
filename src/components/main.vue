@@ -62,7 +62,7 @@
        </div>
        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
          <div class="panel-body" style="padding: 0;">
-           <button class="btn btn-primary" style="width: 100%;">供应商信息</button>
+           <button class="btn btn-primary" style="width: 100%;" @click="toSupplier">供应商信息</button>
            <button class="btn btn-primary" style="width: 100%;">检索中心</button>
            <button class="btn btn-primary" style="width: 100%;">渠道管理</button>
            <button class="btn btn-primary" style="width: 100%;">来电管理</button>
@@ -145,6 +145,9 @@
       this.getuser()
      },
      methods:{
+       toSupplier:function(){
+         this.$router.push("/main/supplier")
+       },
        getuser(){
            var obj=this
            $.ajax({
@@ -168,7 +171,8 @@
           this.$router.push("/main/customerinfor")
        },
        tolinkman(){
-         this.$router.push("/main/linkman")
+         var obj=this
+         this.$router.push({name:'Linkman',query:{id:obj.user.id,role:obj.user.role}})
        },
        toupdatepwd(){
          this.$router.push("/main/updatePwd")

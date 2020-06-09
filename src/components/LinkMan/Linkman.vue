@@ -31,11 +31,17 @@
   export default{
      data(){
        return{
-          linksmans:[]
+          linksmans:[],
+          u_role:this.$route.query.role,
+          u_id:this.$route.query.id
        }
      },
      mounted(){
+       if(this.u_role=="0"){
          this.getlinkman()
+       }else{
+         this.getlinkmanById(this.u_id)
+       }
      },
      methods:{
          getlinkman(){
@@ -51,7 +57,24 @@
                	withCredentials: true
                }
             });
-         }
+         },
+         getlinkmanById(id){
+            var obj=this
+            $.ajax({
+               url:"http://localhost:8082/crm/linkmanController/getlinkmansById",
+               type:"POST",
+               data:{time:new Date().getTime(),
+                     id:id
+               },
+               success:function(result){
+                   obj.linksmans=result.IDlinkman
+               },
+               xhrFields: {
+               	withCredentials: true
+               }
+            });
+         },
+
      }
   }
 </script>
